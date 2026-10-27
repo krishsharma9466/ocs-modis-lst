@@ -1,0 +1,178 @@
+# MODIS LST read directly from the Planetary Computer STAC catalogue (no Google Earth Engine).
+# Plugin class: modis_lst.py (same folder). ingestion.plugin is relative to plugins_dir.
+- id: modis_lst_day_monthly
+  name: Land surface temperature, daytime (MODIS, monthly)
+  short_name: LST day (monthly)
+  description: Monthly mean daytime land surface temperature at 1 km from MODIS Terra MOD11A2 (8-day composites
+    whose start date falls in the month). Cloudy pixels are NaN.
+  standard_name: surface_temperature
+  variable: lst_day
+  period_type: monthly
+  sync:
+    kind: temporal
+    execution: append
+  extents:
+    spatial:
+      bbox:
+      - -180
+      - -90
+      - 180
+      - 90
+    temporal:
+      begin: '2000-03-01'
+      resolution: P1M
+  ingestion:
+    plugin: rasters.modis_lst.ModisLSTPlugin
+    params:
+      cadence: monthly
+      band: LST_Day_1km
+      variable: lst_day
+  units: degC
+  cell_methods: 'time: mean'
+  resolution: 1 km x 1 km
+  source: MODIS MOD11A2 v061
+  source_url: https://planetarycomputer.microsoft.com/dataset/modis-11A2-061
+  license:
+    name: NASA LP DAAC data use policy (no restrictions on use, sale or redistribution)
+    url: https://www.earthdata.nasa.gov/engage/open-data-services-software-policies/data-use-guidance
+  providers:
+  - name: NASA LP DAAC (served via Microsoft Planetary Computer)
+    url: https://lpdaac.usgs.gov/
+  display:
+    colormap: rdbu_r
+    range:
+    - -10.0
+    - 50.0
+    nodata: -9999.0
+- id: modis_lst_night_monthly
+  name: Land surface temperature, night-time (MODIS, monthly)
+  short_name: LST night (monthly)
+  description: Monthly mean night-time land surface temperature at 1 km from MODIS Terra MOD11A2. Cloudy
+    pixels are NaN.
+  standard_name: surface_temperature
+  variable: lst_night
+  period_type: monthly
+  sync:
+    kind: temporal
+    execution: append
+  extents:
+    spatial:
+      bbox:
+      - -180
+      - -90
+      - 180
+      - 90
+    temporal:
+      begin: '2000-03-01'
+      resolution: P1M
+  ingestion:
+    plugin: rasters.modis_lst.ModisLSTPlugin
+    params:
+      cadence: monthly
+      band: LST_Night_1km
+      variable: lst_night
+  units: degC
+  cell_methods: 'time: mean'
+  resolution: 1 km x 1 km
+  source: MODIS MOD11A2 v061
+  source_url: https://planetarycomputer.microsoft.com/dataset/modis-11A2-061
+  license:
+    name: NASA LP DAAC data use policy (no restrictions on use, sale or redistribution)
+    url: https://www.earthdata.nasa.gov/engage/open-data-services-software-policies/data-use-guidance
+  providers:
+  - name: NASA LP DAAC (served via Microsoft Planetary Computer)
+    url: https://lpdaac.usgs.gov/
+  display:
+    colormap: rdbu_r
+    range:
+    - -10.0
+    - 50.0
+    nodata: -9999.0
+- id: modis_lst_day_daily
+  name: Land surface temperature, daytime (MODIS, daily)
+  short_name: LST day (daily)
+  description: Daily daytime land surface temperature at 1 km from MODIS Terra MOD11A1. Cloudy pixels
+    are NaN, so daily coverage is patchy.
+  standard_name: surface_temperature
+  variable: lst_day
+  period_type: daily
+  sync:
+    kind: temporal
+    execution: append
+  extents:
+    spatial:
+      bbox:
+      - -180
+      - -90
+      - 180
+      - 90
+    temporal:
+      begin: '2000-03-05'
+      resolution: P1D
+  ingestion:
+    plugin: rasters.modis_lst.ModisLSTPlugin
+    params:
+      cadence: daily
+      band: LST_Day_1km
+      variable: lst_day
+  units: degC
+  cell_methods: 'time: mean'
+  resolution: 1 km x 1 km
+  source: MODIS MOD11A1 v061
+  source_url: https://planetarycomputer.microsoft.com/dataset/modis-11A1-061
+  license:
+    name: NASA LP DAAC data use policy (no restrictions on use, sale or redistribution)
+    url: https://www.earthdata.nasa.gov/engage/open-data-services-software-policies/data-use-guidance
+  providers:
+  - name: NASA LP DAAC (served via Microsoft Planetary Computer)
+    url: https://lpdaac.usgs.gov/
+  display:
+    colormap: rdbu_r
+    range:
+    - -10.0
+    - 50.0
+    nodata: -9999.0
+- id: modis_lst_night_daily
+  name: Land surface temperature, night-time (MODIS, daily)
+  short_name: LST night (daily)
+  description: Daily night-time land surface temperature at 1 km from MODIS Terra MOD11A1. Cloudy pixels
+    are NaN.
+  standard_name: surface_temperature
+  variable: lst_night
+  period_type: daily
+  sync:
+    kind: temporal
+    execution: append
+  extents:
+    spatial:
+      bbox:
+      - -180
+      - -90
+      - 180
+      - 90
+    temporal:
+      begin: '2000-03-05'
+      resolution: P1D
+  ingestion:
+    plugin: rasters.modis_lst.ModisLSTPlugin
+    params:
+      cadence: daily
+      band: LST_Night_1km
+      variable: lst_night
+  units: degC
+  cell_methods: 'time: mean'
+  resolution: 1 km x 1 km
+  source: MODIS MOD11A1 v061
+  source_url: https://planetarycomputer.microsoft.com/dataset/modis-11A1-061
+  license:
+    name: NASA LP DAAC data use policy (no restrictions on use, sale or redistribution)
+    url: https://www.earthdata.nasa.gov/engage/open-data-services-software-policies/data-use-guidance
+  providers:
+  - name: NASA LP DAAC (served via Microsoft Planetary Computer)
+    url: https://lpdaac.usgs.gov/
+  display:
+    colormap: rdbu_r
+    range:
+    - -10.0
+    - 50.0
+    nodata: -9999.0
