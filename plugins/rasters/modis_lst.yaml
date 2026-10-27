@@ -1,4 +1,4 @@
-# MODIS LST read directly from the Planetary Computer STAC catalogue (no Google Earth Engine).
+# MODIS LST read directly from the Planetary Computer STAC catalogue
 # Plugin class: modis_lst.py (same folder). ingestion.plugin is relative to plugins_dir.
 - id: modis_lst_day_monthly
   name: Land surface temperature, daytime (MODIS, monthly)
