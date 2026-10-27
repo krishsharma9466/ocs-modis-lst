@@ -1,0 +1,1 @@
+planetary-computer>=1.0
